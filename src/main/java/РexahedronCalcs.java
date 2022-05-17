@@ -26,7 +26,7 @@ public class РexahedronCalcs {
 
     public static void saveInFile(double lengthA, double heightB, double widthC) throws IOException {
 
-        File temp = new File("C://temp.txt"); //Должно быть - "./temp.txt"
+        File temp = new File("./temp.txt");
         temp.createNewFile();
 
         try (FileWriter text = new FileWriter("temp.txt")) {

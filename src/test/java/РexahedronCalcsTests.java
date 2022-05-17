@@ -3,10 +3,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.io.IOException;
 import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class РexahedronCalcsTests {
     РexahedronCalcs sut;
@@ -28,7 +25,7 @@ public class РexahedronCalcsTests {
 
     @ParameterizedTest
     @MethodSource("source")
-    public void testpexahedronArea(double lengthA, double heightB, double widthC, double expected) {
+    public void testPexahedronArea(double lengthA, double heightB, double widthC, double expected) {
 
         double result = sut.pexahedronArea(lengthA,heightB, widthC);
 
@@ -36,11 +33,11 @@ public class РexahedronCalcsTests {
     }
 
     private static Stream<Arguments> source() {
-        return Stream.of(Arguments.of(2, 6, 9, 168.0), Arguments.of(3, 8, 12, 312.0));
+        return Stream.of(Arguments.of(2, 6, 9, 168.0), Arguments.of(3, 8, 12, 312.0), Arguments.of(4, 6, 11, 268.0));
     }
 
     @Test
-    public void testisThis3D() {
+    public void testIsThis3D() {
 
         double lengthA = 0;
         double heigthB = 1;
@@ -52,15 +49,13 @@ public class РexahedronCalcsTests {
     }
 
     @Test
-    void testsaveInFile() throws IOException {
+    void testSaveInFile(){
 
         double lengthA = 0;
         double heigthB = 1;
         double widthC = 5;
 
-        Throwable thrown = assertThrows(IOException.class, () -> РexahedronCalcs.saveInFile(lengthA, heigthB, widthC));
-
-        assertFalse(thrown.getMessage().contains("IOException"));
+        Assertions.assertDoesNotThrow(() -> РexahedronCalcs.saveInFile(lengthA, heigthB, widthC));
     }
 
 }
