@@ -1,0 +1,17 @@
+#Папки не нужны
+tmp/
+.idea/
+out/
+
+#Файлы не нужны
+Thumbs.db
+*.DS_Store
+*.iml
+
+
+# Project exclude paths
+/api/target/
+/db/target/
+/service/target/
+# Project exclude paths
+/target/
